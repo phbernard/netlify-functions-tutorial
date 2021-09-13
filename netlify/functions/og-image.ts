@@ -1,4 +1,5 @@
-import fs from "fs/promises";
+import { promises as fs } from "fs"
+
 import { Handler } from "@netlify/functions";
 
 const handler: Handler = async (event, context) => {
