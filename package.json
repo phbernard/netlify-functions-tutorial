@@ -1,0 +1,23 @@
+{
+  "name": "netlify-functions-tutorial",
+  "version": "1.0.0",
+  "description": "Learn how to use serverless functions in less than 30 minutes!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phbernard/netlify-functions-tutorial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phbernard/netlify-functions-tutorial/issues"
+  },
+  "homepage": "https://github.com/phbernard/netlify-functions-tutorial#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "node-fetch": "^3.0.0"
+  }
+}
