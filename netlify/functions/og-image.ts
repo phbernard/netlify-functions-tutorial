@@ -3,7 +3,7 @@ import { promises as fs } from "fs"
 import { Handler } from "@netlify/functions";
 
 const handler: Handler = async (event, context) => {
-  const img = await fs.readFile('./public/pic.png', {encoding: 'base64'});
+  const img = await fs.readFile('./assets/pic.png', {encoding: 'base64'});
 
   return {
     statusCode: 200,
