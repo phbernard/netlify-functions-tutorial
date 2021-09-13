@@ -16,8 +16,13 @@
     "url": "https://github.com/phbernard/netlify-functions-tutorial/issues"
   },
   "homepage": "https://github.com/phbernard/netlify-functions-tutorial#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@netlify/functions": "^0.7.2"
+  },
   "devDependencies": {
-    "node-fetch": "^3.0.0"
+    "@types/node": "^16.9.1",
+    "node-fetch": "^3.0.0",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
   }
 }
