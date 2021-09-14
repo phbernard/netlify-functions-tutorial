@@ -19,7 +19,9 @@ const handler = async (event, context) => {
   */
 
   const browser = await chromium.puppeteer.launch({
+    executablePath: await chromium.executablePath,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    headless: chromium.headless
   });
   const page = await browser.newPage();
   // Wait until there are no network connexion for 500ms
