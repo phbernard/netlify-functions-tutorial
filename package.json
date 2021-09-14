@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/phbernard/netlify-functions-tutorial#readme",
   "dependencies": {
-    "@netlify/functions": "^0.7.2"
+    "@netlify/functions": "^0.7.2",
+    "@resoc/core": "^0.4.0",
+    "@resoc/create-img": "^0.4.1"
   },
   "devDependencies": {
     "@types/node": "^16.9.1",
