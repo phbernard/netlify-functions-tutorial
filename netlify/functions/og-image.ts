@@ -17,10 +17,11 @@ const handler = async (event, context) => {
   }, FacebookOpenGraph, './pic.png');
   const img = await fs.readFile('./pic.png', {encoding: 'base64'});
   */
+  console.log("Start");
 
   const browser = await chromium.puppeteer.launch({
     executablePath: await chromium.executablePath,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    args: chromium.args,
     headless: chromium.headless
   });
   const page = await browser.newPage();
@@ -36,7 +37,11 @@ const handler = async (event, context) => {
 
   await browser.close();
 
+  console.log("Chrome closed");
+
   const img = await fs.readFile('./pic.png', {encoding: 'base64'});
+
+  console.log("Read pic", img.length);
 
   return {
     statusCode: 200,
