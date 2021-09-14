@@ -19,7 +19,7 @@
   "dependencies": {
     "@netlify/functions": "^0.7.2",
     "@resoc/core": "^0.4.0",
-    "@resoc/create-img": "^0.4.1"
+    "@resoc/create-img": "^0.4.2"
   },
   "devDependencies": {
     "@types/node": "^16.9.1",
