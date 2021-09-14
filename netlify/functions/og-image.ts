@@ -17,7 +17,7 @@ const handler = async (event, context) => {
   }, FacebookOpenGraph, './pic.png');
   const img = await fs.readFile('./pic.png', {encoding: 'base64'});
   */
-  console.log("Start");
+  console.log("Start", chromium.args);
 
   const browser = await chromium.puppeteer.launch({
     executablePath: await chromium.executablePath,
