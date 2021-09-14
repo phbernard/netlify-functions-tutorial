@@ -2,3 +2,4 @@
 [functions]
   directory = "netlify/functions"
   included_files = [ "assets/**" ]
+  external_node_modules = ["chrome-aws-lambda"]
