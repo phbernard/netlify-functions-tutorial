@@ -18,8 +18,8 @@
   "homepage": "https://github.com/phbernard/netlify-functions-tutorial#readme",
   "dependencies": {
     "@netlify/functions": "^0.7.2",
-    "@resoc/core": "^0.4.0",
-    "@resoc/create-img": "^0.4.2"
+    "chrome-aws-lambda": "^10.1.0",
+    "puppeteer-core": "^10.2.0"
   },
   "devDependencies": {
     "@types/node": "^16.9.1",
