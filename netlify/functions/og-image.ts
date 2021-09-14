@@ -29,26 +29,22 @@ const handler = async (event, context) => {
   await page.goto('http://realfavicongenerator.net', {waitUntil: [
     'networkidle0', 'domcontentloaded', 'load'
   ]});
-  const output = './pic.png';
-  await page.screenshot({
-    path: output,
-    fullPage: true
+  const output = await page.screenshot({
+    type: 'jpeg',
+    quality: 80,
+    encoding: "base64"
   });
 
   await browser.close();
 
   console.log("Chrome closed");
 
-  const img = await fs.readFile('./pic.png', {encoding: 'base64'});
-
-  console.log("Read pic", img.length);
-
   return {
     statusCode: 200,
     headers: {
-      'Content-Type': 'image/png'
+      'Content-Type': 'image/jpg'
     },
-    body: img.toString(),
+    body: output,
     isBase64Encoded: true
   };
 };
