@@ -1,13 +1,13 @@
-import { promises as fs } from "fs"
+const fs = require('fs').promises;
 
-import { Handler } from "@netlify/functions";
+//const Handler = require('@netlify/functions').Handler;
 
 const chromium = require('chrome-aws-lambda');
 
 //import { compileLocalTemplate } from '@resoc/create-img'
 //import { FacebookOpenGraph } from '@resoc/core'
 
-const handler: Handler = async (event, context) => {
+const handler = async (event, context) => {
   /*
   await compileLocalTemplate('./assets/resoc-template/resoc.manifest.json', {
     title: "Hello!!",
