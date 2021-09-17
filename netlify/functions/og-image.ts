@@ -74,7 +74,7 @@ const handler = async (event, context) => {
 
   const htmlPath = await resoc.renderLocalTemplate(
     template, {
-      title: 'A picture is worth a thousand words',
+      title: 'A picture is worth a thousand words!!',
       mainImageUrl: 'https://resoc.io/assets/img/demo/photos/pexels-photo-371589.jpeg',
       textColor: '#ffffff',
       backgroundColor: '#20552a'
