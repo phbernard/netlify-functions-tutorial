@@ -1,4 +1,5 @@
 const fs = require('fs').promises;
+const path = require('path');
 
 //const Handler = require('@netlify/functions').Handler;
 
@@ -52,6 +53,9 @@ const handler = async (event, context) => {
   };
 */
 
+  const imagePath = path.resolve('./output-image.jpg');
+  console.log("Path is " + imagePath);
+
   resoc.createImage(
     'assets/resoc-template/resoc.manifest.json', 
     {
@@ -61,7 +65,7 @@ const handler = async (event, context) => {
       backgroundColor: '#20552a'
     },
     resocCore.FacebookOpenGraph,
-    'output-image.jpg', { browser }
+    imagePath, { browser }
   );
 
   console.log("Chrome closed");
@@ -71,7 +75,7 @@ const handler = async (event, context) => {
     headers: {
       'Content-Type': 'image/jpg'
     },
-    body: await fs.readFile('output-image.jpg', {encoding: 'base64'}),
+    body: await fs.readFile(imagePath, {encoding: 'base64'}),
     isBase64Encoded: true
   };
 };
