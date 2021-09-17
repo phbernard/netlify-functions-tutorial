@@ -28,7 +28,6 @@ const handler = async (event, context) => {
     headless: chromium.headless
   });
 
-  /*
   const page = await browser.newPage();
   // Wait until there are no network connexion for 500ms
   await page.goto('http://realfavicongenerator.net', {waitUntil: [
@@ -41,8 +40,17 @@ const handler = async (event, context) => {
   });
 
   await browser.close();
-*/
 
+    return {
+    statusCode: 200,
+    headers: {
+      'Content-Type': 'image/jpg'
+    },
+    body: output,
+    isBase64Encoded: true
+  };
+
+/*
   resoc.createImage(
     'assets/resoc-template/resoc.manifest.json', 
     {
@@ -65,6 +73,7 @@ const handler = async (event, context) => {
     body: await fs.readFile('output-image.jpg', {encoding: 'base64'}),
     isBase64Encoded: true
   };
+  */
 };
 
 export { handler };
