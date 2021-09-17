@@ -4,6 +4,9 @@ const fs = require('fs').promises;
 
 const chromium = require('chrome-aws-lambda');
 
+const resocCore = require('@resoc/core');
+const resoc = require('@resoc/create-img');
+
 //import { compileLocalTemplate } from '@resoc/create-img'
 //import { FacebookOpenGraph } from '@resoc/core'
 
@@ -24,6 +27,8 @@ const handler = async (event, context) => {
     args: chromium.args,
     headless: chromium.headless
   });
+
+  /*
   const page = await browser.newPage();
   // Wait until there are no network connexion for 500ms
   await page.goto('http://realfavicongenerator.net', {waitUntil: [
@@ -36,6 +41,19 @@ const handler = async (event, context) => {
   });
 
   await browser.close();
+*/
+
+  resoc.createImage(
+    'assets/resoc-template/resoc.manifest.json', 
+    {
+      title: 'A picture is worth a thousand words',
+      mainImageUrl: 'https://resoc.io/assets/img/demo/photos/pexels-photo-371589.jpeg',
+      textColor: '#ffffff',
+      backgroundColor: '#20552a'
+    },
+    resocCore.FacebookOpenGraph,
+    'output-image.jpg'
+  );
 
   console.log("Chrome closed");
 
@@ -44,7 +62,7 @@ const handler = async (event, context) => {
     headers: {
       'Content-Type': 'image/jpg'
     },
-    body: output,
+    body: await fs.readFile('output-image.jpg', {encoding: 'base64'}),
     isBase64Encoded: true
   };
 };
