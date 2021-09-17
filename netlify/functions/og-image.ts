@@ -56,6 +56,7 @@ const handler = async (event, context) => {
   const imagePath = path.resolve('./output-image.jpg');
   console.log("Path is " + imagePath);
 
+  /*
   resoc.createImage(
     'assets/resoc-template/resoc.manifest.json', 
     {
@@ -67,6 +68,30 @@ const handler = async (event, context) => {
     resocCore.FacebookOpenGraph,
     imagePath, { browser }
   );
+*/
+
+  const template = await resoc.loadLocalTemplate('assets/resoc-template/resoc.manifest.json');
+
+  const htmlPath = await resoc.renderLocalTemplate(
+    template, {
+      title: 'A picture is worth a thousand words',
+      mainImageUrl: 'https://resoc.io/assets/img/demo/photos/pexels-photo-371589.jpeg',
+      textColor: '#ffffff',
+      backgroundColor: '#20552a'
+    },
+    resocCore.FacebookOpenGraph,
+    'assets/resoc-template'
+  );
+
+  const image = await resoc.convertUrlToImage(
+    `file:///${htmlPath}`, {
+      type: 'jpeg',
+      quality: 80,
+      encoding: "base64",
+      fullPage: true
+    },
+    browser
+  );
 
   console.log("Chrome closed");
 
@@ -75,7 +100,7 @@ const handler = async (event, context) => {
     headers: {
       'Content-Type': 'image/jpg'
     },
-    body: await fs.readFile(imagePath, {encoding: 'base64'}),
+    body: image,
     isBase64Encoded: true
   };
 };
