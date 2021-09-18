@@ -2,6 +2,7 @@ const fs = require('fs').promises;
 const path = require('path');
 
 //const Handler = require('@netlify/functions').Handler;
+const { builder } = require("@netlify/functions");
 
 const chromium = require('chrome-aws-lambda');
 
@@ -105,4 +106,5 @@ const handler = async (event, context) => {
   };
 };
 
-export { handler };
+//export { handler };
+exports.handler = builder(handler);
